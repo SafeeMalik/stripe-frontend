@@ -21,7 +21,7 @@ class Coupon extends Component {
     }
 
     getCouponListing = () => {
-        axios.get(`https://stripe-react-expressapp.herokuapp.com/coupons/listCoupons`)
+        axios.get(`http://stripe-react-expressapp.herokuapp.com/coupons/listCoupons`)
             .then(res => {
                 this.setState({
                     couponList: res.data.data
@@ -33,7 +33,7 @@ class Coupon extends Component {
 
     deleteCoupon = (id) => {
         console.log("delete function called with id: ", id)
-        axios.delete(`https://stripe-react-expressapp.herokuapp.com/coupons/deleteCoupon`, {
+        axios.delete(`http://stripe-react-expressapp.herokuapp.com/coupons/deleteCoupon`, {
             data: { couponID: id }
         })
             .then(res => {
@@ -43,7 +43,7 @@ class Coupon extends Component {
     }
 
     createCoupon = () => {
-        axios.post(`https://stripe-react-expressapp.herokuapp.com/coupons/createCoupon`, {
+        axios.post(`http://stripe-react-expressapp.herokuapp.com/coupons/createCoupon`, {
             perc_off: this.state.perc_off,
             duration_in_months: this.state.duration
         })
